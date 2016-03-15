@@ -1,0 +1,46 @@
+float x,y;                          // Position of guy and sun.
+float sunX, sunY;
+
+void setup()
+{
+            size( 500, 400 );
+            sunX =  width/2;                  // Reset the sun position.
+            sunY =  50; 
+}
+void draw()
+{
+    /// Characters 
+    {
+            background( 150, 255, 255 );        // Blue sky
+            fill( 255, 255, 0 );
+            fill(0,255,0);
+            rect(0,250,1500,1500);
+            fill(255,255,0);
+            ellipse( sunX, sunY, 30,30 );       // Yellow sun
+             // Draw a house, with roof.
+            fill( 67, 0,100 );                  // House color 
+            rect( 50,190, 100,60 );
+            triangle( 50,190, 150,190, 100,160 );  // Roof
+    }
+    {
+            sunX=  sunX + 1;
+            if (sunX > width) sunX=  0;
+            x=  mouseX;                         // Move the guy
+            y=  mouseY;
+    }
+    {
+            fill( 93,60,29 );
+            rect( x, y, 50, 80 );               // Body
+            ellipse( x+25, y-20, 40,40 );       // Head
+            fill( 255 );
+            ellipse( x+15,y-25, 12,12 );        // Eyes
+            ellipse( x+35,y-25, 12,12 );
+    }
+
+     // MESSAGES:  title & author
+     {
+            fill(0);
+            text(  "Project #2:  Dynamics",   100, 10 );
+            text(  "Jack Suter, Bonac",   10, height-10 );
+    }
+}
